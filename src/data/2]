@@ -1,1 +1,0 @@
-                     if token not in self.stop_words and len(token) 
