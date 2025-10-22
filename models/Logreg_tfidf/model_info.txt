@@ -1,0 +1,20 @@
+=== LOGREG_TFIDF MODEL INFO ===
+
+Сохранено: 2025-10-21 13:47:08.639263
+
+МЕТРИКИ:
+  F1-Score: 0.7717
+  Accuracy: 0.7834
+  Training Time: 5.62 сек
+  Prediction Time: 0.0010 сек
+
+ПАРАМЕТРЫ TF-IDF:
+  max_features: 10000
+  ngram_range: (1, 2)
+  stop_words: english
+
+СОХРАНЕННЫЕ ФАЙЛЫ:
+  lr_model.joblib - модель Logistic Regression
+  tfidf_vectorizer.joblib - TF-IDF векторизатор
+  logreg_tfidf_package.joblib - полный пакет
+  model_info.txt - эта информация
