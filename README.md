@@ -27,11 +27,12 @@
 - В качестве метрики - `F1`и Accuracy.
 
 ## Запуск:
-
--Собрать образ из папки docker
+  -Подгрузить-
+  !requirements.txt
+-Собрать образ из папки docker-
 docker build -t sarcasm-service -f docker/Dockerfile .
 
-Или если Dockerfile в корне docker папки
+Или если Dockerfile в корне docker папки-
 docker build -t sarcasm-service docker/
 
 Запустить контейнер
