@@ -1,6 +1,8 @@
 # Sentiment - analysis
 
-Этот репозиторий содержит обученную модель `Logistic Regression + TF-IDF (Classic ML)` на небольшом корпусе из 28619 текстов на английском языке.
+Самая быстрая модель `Logistic Regression + TF-IDF (Classic ML)`, но предсказывает плохо, для инференса берем "BERT-Tiny " обученную на небольшом корпусе из 28619 текстов на английском языке
+(модель для предсказаний находится в src/models
+/predict_model.py).
 
 ## Code
 
@@ -9,12 +11,6 @@
 Для развертывания модели используется Pipeline и FastAPI, стандартный порт `1234`.
 
 ## Expertiments
-
-Исползуемые ресурсы:
-- WSL (Ubuntu 22.04)
-- RTX 4090
-- 16 RAM в WSL
-- Ryzen 5900x (12 ядер в WSL)
 
 Данные:
 - дисбаланса нет
@@ -30,25 +26,20 @@
 - В языковых моделях используем всю выборку и проверяем уже на тестовой при валидации в трейнере.
 - В качестве метрики - `F1`и Accuracy.
 
-Результат:
-- Самая быстрая модель для инференса это `TFIDF` + `logreg`, несмотря на то что метрика чуть хуже(но этого достаточно для точной классификации) чем остальных моделей возмем ее из за быстрты.
+## Запуск:
 
-Запуск:
+-Собрать образ из папки docker
+docker build -t sarcasm-service -f docker/Dockerfile .
 
-cmd
-cd src
-python -c "import uvicorn; uvicorn.run('app:app', host='0.0.0.0', port=8000)"
+Или если Dockerfile в корне docker папки
+docker build -t sarcasm-service docker/
 
-Тестирование:
+Запустить контейнер
+docker run -p 8000:8000 sarcasm-service
 
 Открыть http://localhost:8000/docs
 
 Или использовать curl команды
-
-Демо:
-
-cmd
-python test_demo.py
 
 ## Deploy and inference
 
