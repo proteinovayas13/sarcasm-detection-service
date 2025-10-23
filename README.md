@@ -26,22 +26,6 @@
 - В языковых моделях используем всю выборку и проверяем уже на тестовой при валидации в трейнере.
 - В качестве метрики - `F1`и Accuracy.
 
-## Запуск:
-  -Подгрузить-
-  !requirements.txt
--Собрать образ из папки docker-
-docker build -t sarcasm-service -f docker/Dockerfile .
-
-Или если Dockerfile в корне docker папки-
-docker build -t sarcasm-service docker/
-
-Запустить контейнер
-docker run -p 8000:8000 sarcasm-service
-
-Открыть http://localhost:8000/docs
-
-Или использовать curl команды
-
 ## Deploy and inference
 
 Собранный образ основан на базовом Python. Новый образ нужно собрать с помощью `build`.
@@ -49,8 +33,12 @@ docker run -p 8000:8000 sarcasm-service
 Для инференса используем Docker-compose:
 
 ```bash
-docker compose up --build -d
+docker compose -f docker/docker-compose.yml up --build -d
 ```
+docker run -p 8000:8000 sarcasm-service
+
+Открыть http://localhost:8000/docs
+
 
 После чего можно споконо заходить на Swagger через порт `1234`.
 
