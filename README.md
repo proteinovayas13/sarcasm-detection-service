@@ -39,6 +39,12 @@ docker run -p 8000:8000 sarcasm-service
 
 Открыть http://localhost:8000/docs
 
+ ## ИЛИ
+
+```bash
+pip install -r requirements.txt
+python minimal_api.py
+```
 
 После чего можно споконо заходить на Swagger через порт `1234`.
 
