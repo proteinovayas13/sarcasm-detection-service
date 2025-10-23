@@ -40,7 +40,7 @@ docker run -p 8000:8000 sarcasm-service
 ```
 Открыть http://localhost:8000/docs
 
- ## ИЛИ
+ ## Запуск без docker контейнера
 
 ```bash
 pip install -r requirements.txt
