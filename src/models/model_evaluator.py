@@ -14,10 +14,7 @@ class ModelEvaluator:
     """Комплексная оценка моделей классификации"""
     
     def __init__(self):
-        self.accuracy_metric = evaluate.load("accuracy")
         self.f1_metric = evaluate.load("f1")
-        self.precision_metric = evaluate.load("precision")
-        self.recall_metric = evaluate.load("recall")
     
     def evaluate_sklearn_model(self, model, texts: List[str], true_labels: List[int]) -> Dict[str, Any]:
         """Оценка sklearn моделей"""
@@ -42,10 +39,7 @@ class ModelEvaluator:
         recall = self.recall_metric.compute(predictions=pred_labels, references=true_labels, average='weighted')
         
         metrics = {
-            'accuracy': accuracy['accuracy'],
             'f1_score': f1['f1'],
-            'precision': precision['precision'],
-            'recall': recall['recall'],
             'inference_time': inference_time,
             'inference_time_per_sample': inference_time / n_samples,
             'predictions': pred_labels,
@@ -61,10 +55,7 @@ class ModelEvaluator:
         for model_name, results in models_results.items():
             comparison_data.append({
                 'Model': model_name,
-                'Accuracy': results['accuracy'],
                 'F1-Score': results['f1_score'],
-                'Precision': results['precision'],
-                'Recall': results['recall'],
                 'Inference Time (s)': results['inference_time'],
                 'Time per Sample (ms)': results['inference_time_per_sample'] * 1000
             })
@@ -76,7 +67,7 @@ class ModelEvaluator:
         fig, axes = plt.subplots(2, 2, figsize=(15, 10))
         
         # Метрики качества
-        metrics = ['Accuracy', 'F1-Score', 'Precision', 'Recall']
+        metrics = [F1-Score']
         for i, metric in enumerate(metrics):
             ax = axes[i//2, i%2]
             sns.barplot(data=comparison_df, x='Model', y=metric, ax=ax)
