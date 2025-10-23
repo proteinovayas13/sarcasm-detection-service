@@ -1,14 +1,13 @@
 # Sentiment - analysis
 
-Самая быстрая модель `Logistic Regression + TF-IDF (Classic ML)`, но предсказывает плохо, для инференса берем "BERT-Tiny " обученную на небольшом корпусе из 28619 текстов на английском языке
-(модель для предсказаний находится в src/models
-/predict_model.py).
+Самая быстрая модель `Logistic Regression + TF-IDF (Classic ML)`, но предсказывает плохо, для инференса берем ' BERT-Tiny ' обученную на небольшом корпусе из 28619 текстов на английском языке
+(модель для предсказаний находится в src/models/predict_model.py).
 
 ## Code
 
 Для обучения используется обычный Trainer.
 
-Для развертывания модели используется Pipeline и FastAPI, стандартный порт `1234`.
+Для развертывания модели Pipeline и FastAPI, стандартный порт `1234`.
 
 ## Expertiments
 
@@ -40,14 +39,7 @@ docker run -p 8000:8000 sarcasm-service
 ```
 Открыть http://localhost:8000/docs
 
- ## Запуск без docker контейнера
-
-```bash
-pip install -r requirements.txt
-python minimal_api.py
-```
-
-После чего можно споконо заходить на Swagger через порт `1234`.
+Заходим на Swagger через порт `1234`.
 
     ## TODO
 
@@ -57,3 +49,11 @@ python minimal_api.py
 - [ ] Автоматический подбор гиперпараметров
 - [ ] Docker для обучения-экспериментов и инференса итоговой модели
 - [ ] Переписать код на нативный PyTorch
+
+## Запуск без docker контейнера
+
+```bash
+pip install -r requirements.txt
+python minimal_api.py
+```
+
