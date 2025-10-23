@@ -35,8 +35,9 @@
 ```bash
 docker compose -f docker/docker-compose.yml up --build -d
 ```
+```
 docker run -p 8000:8000 sarcasm-service
-
+```
 Открыть http://localhost:8000/docs
 
  ## ИЛИ
